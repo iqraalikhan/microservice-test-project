@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import software.amazon.codeguruprofilerjavaagent.Profiler;
+
 
 /**
  * @author Vijayendra Mudigal
@@ -27,6 +29,10 @@ public class ServiceTwoApplication {
   }
 
   public static void main(String[] args) {
+	  
+	  	new Profiler.Builder()
+  .profilingGroupName("MicroServiceProfiler")
+  .build().start();
     SpringApplication.run(ServiceTwoApplication.class, args);
   }
 
